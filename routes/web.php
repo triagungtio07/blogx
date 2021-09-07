@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'home');
+Route::get('/', \App\Http\Livewire\Home::class);
 
 Route::get('post/create', \App\Http\Livewire\PostCreate::class);
 
@@ -23,3 +23,4 @@ Route::get('about', \App\Http\Livewire\About::class);
 
 Route::get('auth/register', \App\Http\Livewire\Auth\Register::class);
 Route::get('auth/login', \App\Http\Livewire\Auth\Login::class);
+Route::get('auth/logout', [\App\Http\Livewire\Auth\Login::class, 'logout']);
