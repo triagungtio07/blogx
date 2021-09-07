@@ -20,3 +20,6 @@ Route::get('post/create', \App\Http\Livewire\PostCreate::class);
 Route::get('post/{slug}', \App\Http\Livewire\Post::class);
 
 Route::get('about', \App\Http\Livewire\About::class);
+
+Route::get('auth/register', \App\Http\Livewire\Auth\Register::class);
+Route::get('auth/login', \App\Http\Livewire\Auth\Login::class);

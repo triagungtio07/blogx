@@ -61,13 +61,19 @@ php artisan serve
 
 ## Sail
 Dockerize Laravel Environment
+1. Set the MySQL host to `mysql`
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+```
 
-1. Sail up `:boat:`
+2. Sail up :boat:
 ```
 vendor/bin/sail up
 ```
 
-2. Migrate database
+3. Migrate database
 ```
 vendor/bin/sail artisan migrate
 ```

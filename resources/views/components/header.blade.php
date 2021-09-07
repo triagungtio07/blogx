@@ -10,7 +10,7 @@
                 BLOGX
             </a>
             <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-                <a href="#_" class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">Login</a>
+                <a href="/auth/login" class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">Login</a>
             </div>
         </div>
     </header>    
