@@ -11,13 +11,13 @@ class Home extends Component
 
     public function mount()
     {
-        if (session()->missing('login')) {
-            session()->flash('not-login', 'Login first!');
+        // if (session()->missing('login')) {
+        //     session()->flash('not-login', 'Login first!');
 
-            return redirect('/auth/login');
-        }
+        //     return redirect('/auth/login');
+        // }
 
-        $this->posts = Post::join('users', 'users.id', '=', 'posts.user_id')->get();
+        $this->posts = Post::join('users', 'users.id', 'posts.user_id')->get();
     }
 
     public function render()

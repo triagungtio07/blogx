@@ -12,7 +12,7 @@ class PostCreate extends Component
     public $body;
 
     protected $rules = [
-        'title' => 'required|unique:posts',
+        'title' => 'required|min:4|unique:posts',
         'body' => 'required',
     ];
 

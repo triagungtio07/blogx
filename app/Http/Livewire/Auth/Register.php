@@ -35,9 +35,9 @@ class Register extends Component
         ]);
 
         // return redirect()->to('/');
-        session()->flash('message', "You are Login successful.");
+        session()->flash('message', "You are Registered successfully!");
 
-        return redirect('/');
+        return redirect('/auth/login');
     }
 
     public function render()
