@@ -26,12 +26,19 @@
     </div>
 
     <div class="mt-10 max-w-xl mx-auto">
-        @foreach($posts as $post)
+        @if ($posts->isNotEmpty())
+            @foreach($posts as $post)
+                <div class="border-b mb-5 pb-5 border-gray-200">
+                    <a href="/post/{{ $post->slug }}" class="text-2xl font-bold mb-2">{{ Str::limit($post->title, 20, '...') }}</a>
+                    <p class="whitespace-normal">{{ Str::limit($post->body, 100) }}</p>
+                    <p> ~ {{ $post->name }}</p>
+                </div>
+            @endforeach
+        @else
             <div class="border-b mb-5 pb-5 border-gray-200">
-                <a href="/post/{{ $post->slug }}" class="text-2xl font-bold mb-2">{{ Str::limit($post->title, 20, '...') }}</a>
-                <p class="whitespace-normal">{{ Str::limit($post->body, 100) }}</p>
-                <p> ~ {{ $post->name }}</p>
+                <h1>Seems like you don't have post :(</h1>
+                <h1>Create some<a href="{{ url('/post/create') }}" class="text-green-700"> here</a>!</h1>
             </div>
-        @endforeach
+        @endif
     </div>
 </div>

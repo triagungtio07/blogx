@@ -18,6 +18,7 @@ Route::get('/', \App\Http\Livewire\Home::class);
 Route::get('post/create', \App\Http\Livewire\PostCreate::class);
 Route::get('post/my', \App\Http\Livewire\MyPost::class);
 Route::get('post/{slug}', \App\Http\Livewire\Post::class);
+Route::get('post/edit/{slug}', \App\Http\Livewire\PostEdit::class);
 
 Route::get('about', \App\Http\Livewire\About::class);
 
