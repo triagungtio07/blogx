@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogx
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: blogx
+  template:
+    metadata:
+      labels:
+        app: blogx
+    spec:
+      containers:
+      - name: blogx
+        image: triagungtio/blogx
+        ports:
+        - containerPort: 9000
+        envFrom:
+        - configMapRef:
+            name: blogx-env
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blogx
+  namespace: dev
+spec:
+  type: NodePort
+  ports:
+  - port: 9000
+    targetPort: 9000
+  selector:
+    app: blogx
