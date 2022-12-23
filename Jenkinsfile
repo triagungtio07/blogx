@@ -26,13 +26,13 @@ pipeline {
         steps {
             script {
              if (env.BRANCH_NAME == 'dev') {
-            sh 'docker push triagungtio/landing:0.0.$BUILD_NUMBER-dev'
+            sh 'docker push triagungtio/blogx:0.0.$BUILD_NUMBER-dev'
                 }
                 else if (env.BRANCH_NAME == 'staging') {
-            sh 'docker push triagungtio/landing:0.0.$BUILD_NUMBER-staging' 
+            sh 'docker push triagungtio/blogx:0.0.$BUILD_NUMBER-staging' 
                 }
                 else if (env.BRANCH_NAME == 'main') {
-            sh 'docker push triagungtio/landing:0.0.$BUILD_NUMBER-main' 
+            sh 'docker push triagungtio/blogx:0.0.$BUILD_NUMBER-main' 
                 }
                 else {
                     sh 'echo Nothing to Push'
