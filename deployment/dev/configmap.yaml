@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: blogx-env
+  name: blogx-env-dev
   namespace: dev
   labels:
-    name: blogx-env
+    name: blogx-env-dev
 data:
   APP_NAME: Laravel
   APP_ENV: local

@@ -39,6 +39,15 @@ pipeline {
                 }
         }
       }
+    }
+     stage('Deploy to Kubernetes Cluster') {
+        steps {
+          withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', serverUrl: '') {
+            sh "kubectl apply -f deployment/dev/namespace.yaml"
+            sh "kubectl apply -f deployment/dev/configmap.yaml"
+            sh "kubectl apply -f deployment/dev/db.yaml"
+        }
+      }
     } 
 }
         post {
@@ -56,3 +65,4 @@ pipeline {
 
         }
 }
+
