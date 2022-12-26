@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: blogx-dev
-        image: triagungtio/blogx
+        image: triagungtio/blogx:latest
         ports:
         - containerPort: 9000
         envFrom:

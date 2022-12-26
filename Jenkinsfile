@@ -48,7 +48,6 @@ pipeline {
             sh "kubectl apply -f deployment/dev/namespace.yaml"
             sh "kubectl apply -f deployment/dev/configmap.yaml"
             sh "kubectl apply -f deployment/dev/db.yaml"
-            sh "kubectl set image deployment/blogx-dev blogx-dev=triagungtio/blogx:0.0.$BUILD_NUMBER-dev"
             sh "kubectl apply -f deployment/dev/app.yaml"
                  }
                 }
