@@ -48,6 +48,7 @@ pipeline {
             sh "kubectl apply -f deployment/dev/namespace.yaml"
             sh "kubectl apply -f deployment/dev/configmap.yaml"
             sh "kubectl apply -f deployment/dev/db.yaml"
+            sh "kubectl apply -f deployment/dev/app.yaml"
                  }
                 }
                 else if (env.BRANCH_NAME == 'staging') {
