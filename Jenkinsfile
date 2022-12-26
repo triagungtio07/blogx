@@ -42,10 +42,23 @@ pipeline {
     }
      stage('Deploy to Kubernetes Cluster') {
         steps {
-          withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', serverUrl: '') {
+        script {
+             if (env.BRANCH_NAME == 'dev') {
+            withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', serverUrl: '') {
             sh "kubectl apply -f deployment/dev/namespace.yaml"
             sh "kubectl apply -f deployment/dev/configmap.yaml"
             sh "kubectl apply -f deployment/dev/db.yaml"
+                 }
+                }
+                else if (env.BRANCH_NAME == 'staging') {
+                    sh 'echo Nothing to deploy'
+                }
+                else if (env.BRANCH_NAME == 'main') {
+                    sh 'echo Nothing to deploy'
+                }
+                else {
+                    sh 'echo Nothing to deploy'
+                }
         }
       }
     } 
