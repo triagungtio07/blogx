@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-service-blogx
-  namespace: dev
+  name: mysql-service-blogx-staging
+  namespace: staging
 spec:
   type: ClusterIP
   ports:
@@ -14,8 +14,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim-lv
-  namespace: dev
+  name: mysql-pv-claim-lv-staging
+  namespace: staging
 spec:
   accessModes:
     - ReadWriteOnce
@@ -27,7 +27,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namespace: dev
+  namespace: staging
 spec:
   selector:
     matchLabels:
@@ -54,9 +54,9 @@ spec:
         ports:
           - containerPort: 3306
         volumeMounts:
-        - name: mysql-data
+        - name: mysql-data-staging  
           mountPath: /var/lib/mysql
       volumes:
-      - name: mysql-data
+      - name: mysql-data-staging
         persistentVolumeClaim:
-          claimName: mysql-pv-claim-lv
+          claimName: mysql-pv-claim-lv-staging
