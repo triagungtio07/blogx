@@ -40,7 +40,7 @@ pipeline {
         }
       }
     }
-     stage('Deploy to Kubernetes Cluster') {
+    stage('Deploy to Kubernetes Cluster') {
         steps {
         script {
              if (env.BRANCH_NAME == 'dev') {
