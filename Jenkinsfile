@@ -3,6 +3,9 @@ pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))   
   }
+  environment {
+    TAG = sh(returnStdout: true, script: 'echo $(git rev-parse --short HEAD)').trim()
+  }
   stages {
     stage('Build Image') {
         steps {
@@ -74,7 +77,9 @@ pipeline {
       }
     } 
 }
-        post {
+
+if (env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'staging' || env.BRANCH_NAME == 'prod' ) {
+     post {
             success {
                 slackSend channel: '#jenkins',
                 color: 'good',
@@ -88,5 +93,8 @@ pipeline {
                 }
 
         }
+     
+    }
+        
 }
 
